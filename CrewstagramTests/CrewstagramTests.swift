@@ -7,9 +7,11 @@
 //
 
 import XCTest
+import CoreData
 @testable import Crewstagram
 
 class CrewstagramTests: XCTestCase {
+    
     
     override func setUp() {
         super.setUp()
@@ -31,6 +33,19 @@ class CrewstagramTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testLoadComments() {
+       
+
+        
+        
+        
+    }
+    
+    func testImageDownloadTime() {
+        
+        
     }
     
 }
