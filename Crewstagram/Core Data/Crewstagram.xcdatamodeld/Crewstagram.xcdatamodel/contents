@@ -7,12 +7,13 @@
     </entity>
     <entity name="CrewImage" representedClassName="CrewImage" syncable="YES">
         <attribute name="favorites" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="imageUrl" optional="YES" attributeType="URI" syncable="YES"/>
-        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="imageUrlString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="crewImage" inverseEntity="Comment" syncable="YES"/>
     </entity>
     <elements>
         <element name="Comment" positionX="-54" positionY="-9" width="128" height="90"/>
-        <element name="CrewImage" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="CrewImage" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>

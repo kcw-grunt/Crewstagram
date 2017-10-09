@@ -18,10 +18,10 @@ extension CrewImage {
     }
 
     @NSManaged public var favorites: Int16
-    @NSManaged public var imageUrl: URL?
-    @NSManaged public var uuid: UUID?
+    @NSManaged public var imageUrlString: String?
+    @NSManaged public var uuid: String?
     @NSManaged public var comments: NSSet?
-
+    @NSManaged public var imageData: NSData?
 }
 
 // MARK: Generated accessors for comments

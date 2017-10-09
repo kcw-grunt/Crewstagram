@@ -11,19 +11,33 @@ import CoreData
 import PromiseKit
 import Alamofire
 
+let crewBaseURLString: String = "http://alpha-web.crewapp.com/crewstagram"
 
 class RootViewController: UITableViewController {
 
-    
     var coreDataStack: CoreDataStack!
     var imagesArray = [CrewImage]()
-    let crewBaseURL: String = "http://alpha-web.crewapp.com/crewstagram"
+    var selectedCrewImage: CrewImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Crewstagram"
         coreDataStack = CoreDataStack()
         self.performLoad()
     }
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        firstly {
+            self.retrieveCrewJSON()
+            }.then {_ in
+            self.tableView.reloadData()
+            }.catch{ error in
+                print("Crewstagram Image Update Error")
+            }
+    }
+    
     func performLoad() {
         coreDataStack.setup { (success) in
             if success {
@@ -32,55 +46,121 @@ class RootViewController: UITableViewController {
                     }.then {_ in
                         self.startImageDownloading()
                     }.catch { error in
-                    print("Crewstagram Imaege Connection")
+                    print("Crewstagram Image Connection Error")
                     }
-                
+               ///NOPE self.tableView.reloadData()
             } else {
-                    print("Crewstagram Core Date Init Failure")
+                print("Crewstagram Core Date Init Failure")
             }
         }
     }
 
-    
     func retrieveCrewJSON() -> Promise<AnyObject?> {
-    
-        let todoEndpoint: String = "https://jsonplaceholder.typicode.com/todos/1"
-        let adtesturl: String = "https://httpbin.org/get"
-        let
-        
         return Promise { fulfill, reject in
-            Alamofire.request("https://httpbin.org/get").responseJSON { response in
-                print("Request: \(String(describing: response.request))")   // original url request
-                print("Response: \(String(describing: response.response))") // http url response
-                print("Result: \(response.result)")                         // response serialization result
-                
-                if let json = response.result.value {
-                    print("JSON: \(json)") // serialized json response
-                }
-                
-                if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                    print("Data: \(utf8Text)") // original server data as UTF8 string
-                }
+            Alamofire.request(URL(string:crewBaseURLString)!, method: .get, parameters: nil, headers: nil)
+                .validate(statusCode: 200..<300)
+                .responseJSON { response in
+                    if response.result.isSuccess {
+                        if let images = response.result.value as? [String:Any], let imagesArray = images["images"] as? Array<[String:Any]> {
+                            
+                            for image in imagesArray {
+                                if let uuid = image["uuid"]! as? String, let imageUrlString = image["imageUrl"]! as? String , let favorites = image["favorites"] as? Int16, let crewImage = self.findMatchOrCreateCrewImage(uuid: uuid) as? CrewImage {
+                                         crewImage.uuid = uuid
+                                         crewImage.imageUrlString = imageUrlString
+                                         crewImage.favorites = favorites
+                                        if crewImage.comments?.count == 0 {
+                                            if let comments = image["comments"] as? Array<[String:Any]> {
+                                                for comment in comments {
+                                                    if let cdComment  =  NSEntityDescription.insertNewObject(forEntityName: "Comment", into: self.coreDataStack.backgroundContext) as? Comment,
+                                                        let body = comment["body"] as? String, let username = comment["username"] as? String {
+                                                        cdComment.body = body
+                                                        cdComment.username = username
+                                                        crewImage.addToComments(cdComment)
+                                                    }
+                                                }
+                                            }
+                                            self.imagesArray.append(crewImage)
+                                        }
+                                } else {
+                                    print("crewImage not initialized nor found")
+                                }
+                            }
+                        }
+                        fulfill(response.result.value as AnyObject?)
+                        
+                        self.tableView.reloadData()
+                    } else {
+                        reject(response.result.error!)
+                    }
             }
         }
-    
     }
     
-    func startImageDownloading() -> Promise<AnyObject?> {
-        
-            return Promise { fulfill, reject in
-//                Alamofire.request(url, method: .get, parameters: parameters, headers: headers)
-//                    .validate(statusCode: 200..<300)
-//                    .responseJSON { response in
-//                        if response.result.isSuccess {
-//                            fulfill(response.result.value as AnyObject?)
-//                        } else {
-//                            reject(response.result.error!)
-//                        }
-//                }
+    func startImageDownloading() {
+        var counter = 0
+        for image in imagesArray {
+            guard let uuid = image.uuid else {
+                print("Crew Image UUID Found")
+                return
             }
+            guard let imageUrl = image.imageUrlString else {
+                print("Crew Image URL Not Found")
+                return
+            }
+            guard let url = URL(string: imageUrl) else {
+                print("Crew Image Not Found")
+                return
+            }
+            counter += 1
+            Alamofire.request(url).responseData(completionHandler: { response in
+                debugPrint(response)
+                 debugPrint(response.result)
+                 if let crewImage = response.result.value {
+                    let image = UIImage(data: crewImage)
+                   self.updateCrewImage(uuid:uuid, newImage: image!)
+                    if counter == self.imagesArray.count {
+                        self.tableView.reloadData()
+                    }
+                }
+            })
+        }
     }
     
+    
+    func findMatchOrCreateCrewImage(uuid:String) -> CrewImage? {
+        do {
+            let imageRequest : NSFetchRequest<CrewImage> = CrewImage.fetchRequest()
+            imageRequest.predicate = NSPredicate(format: "uuid == %@", uuid)
+            let fetchedResults = try coreDataStack.backgroundContext.fetch(imageRequest) as! [CrewImage]
+            if let foundImage = fetchedResults.first {
+                return foundImage
+            } else {
+                if let newCrewImage = NSEntityDescription.insertNewObject(forEntityName: "CrewImage", into: self.coreDataStack.backgroundContext) as? CrewImage {
+                    return newCrewImage
+                }
+            }
+        } catch {
+            print ("Find or Create fetch task failed", error)
+        }
+        return nil
+    }
+    
+    func updateCrewImage(uuid:String, newImage: UIImage) {
+        do {
+            let imageRequest : NSFetchRequest<CrewImage> = CrewImage.fetchRequest()
+            imageRequest.predicate = NSPredicate(format: "uuid == %@", uuid)
+            let fetchedResults = try coreDataStack.backgroundContext.fetch(imageRequest) as! [CrewImage]
+            if let foundImage = fetchedResults.first {
+                foundImage.imageData = UIImagePNGRepresentation(newImage)! as NSData
+                print("saved data")
+            }
+        }
+        catch {
+            print ("fetch task failed", error)
+        }
+        
+    }
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -94,62 +174,43 @@ class RootViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.imagesArray.count
     }
  
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 320
+    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CrewImageCell", for: indexPath) as! CrewImageTableViewCell
+        let crewImage = self.imagesArray[indexPath.row]
+        
+        cell.favoriteLabel.text =  String(crewImage.favorites)
+        let url = URL(string: crewImage.imageUrlString!)
+        
+        if crewImage.imageData?.length == 0 {
+            DispatchQueue.global().async {
+                let data = try? Data(contentsOf: url!)
+                DispatchQueue.main.async {
+                    crewImage.imageData = data as! NSData
+                    cell.crewImageView?.image = UIImage(data: data!)
+                    let testImage = UIImage(data: data!)
+                }
+            }
+        } else {
+            if let existingImage = crewImage.imageData {
+                cell.crewImageView?.image = UIImage(data: existingImage as Data)
+            }
+        }
 
         return cell
     }
  
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedCrewImage = self.imagesArray[indexPath.row]
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailViewController = storyboard.instantiateViewController(withIdentifier:"CrewImageDetailViewController") as! CrewImageDetailViewController
+        detailViewController.currentCrewImage = self.selectedCrewImage
+        detailViewController.coreDataStack = self.coreDataStack
+        self.navigationController?.pushViewController(detailViewController, animated: true)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

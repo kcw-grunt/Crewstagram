@@ -1,25 +1,21 @@
 //
-//  CrewImageTableViewCell.swift
+//  DetailTableViewCell.swift
 //  Crewstagram
 //
-//  Created by Kerry Washington on 10/7/17.
+//  Created by Kerry Washington on 10/8/17.
 //  Copyright © 2017 Grunt Software. All rights reserved.
 //
 
 import UIKit
 
-class CrewImageTableViewCell: UITableViewCell {
- 
-    @IBOutlet weak var favoriteLabel: UILabel!
-    @IBOutlet weak var crewImageView: UIImageView!
-    
-    var cellUUID: String = ""
-   
+class DetailTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var commentsTextView: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.crewImageView.image = UIImage.init(named: "staticImage")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
