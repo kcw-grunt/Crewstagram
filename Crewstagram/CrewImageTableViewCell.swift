@@ -13,9 +13,12 @@ class CrewImageTableViewCell: UITableViewCell {
     @IBOutlet weak var favoriteLabel: UILabel!
     @IBOutlet weak var crewImageView: UIImageView!
     
-    var cellUUID: String = ""
-   
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.favoriteLabel.text = nil
+        self.crewImageView.image = nil
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

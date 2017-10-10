@@ -160,7 +160,6 @@
 		242C61B21F889DDC0086B81D /* Crewstagram */ = {
 			isa = PBXGroup;
 			children = (
-				245E5E361F89C41F003F370C /* Networking */,
 				242C620A1F89916B0086B81D /* Core Data */,
 				242C62001F8988A60086B81D /* View Controllers */,
 				242C61F01F88A2A60086B81D /* Models */,
@@ -222,13 +221,6 @@
 				242C620B1F89936E0086B81D /* CoreDataStack.swift */,
 			);
 			path = "Core Data";
-			sourceTree = "<group>";
-		};
-		245E5E361F89C41F003F370C /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Networking;
 			sourceTree = "<group>";
 		};
 		B1DC8F7C30C8E9F26A21F238 /* Frameworks */ = {

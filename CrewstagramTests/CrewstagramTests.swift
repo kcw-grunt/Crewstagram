@@ -27,24 +27,22 @@ class CrewstagramTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
+
+    func testImageDownloadTime() {
         self.measure {
             // Put the code you want to measure the time of here.
+             ///1. Call Crew API JSON
+            let json = CrewJSON.retrieveCrewJSONObject
         }
     }
     
-    func testLoadComments() {
-       
-
+    func testJSONImagesCountAndCoreDataImages() {
         
+        ///1. Call Crew API JSON
         
+        ///2. Count number of CoreData Crew Images
         
-    }
-    
-    func testImageDownloadTime() {
-        
+        ///3. Compare the two
         
     }
     

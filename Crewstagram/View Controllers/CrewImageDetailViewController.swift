@@ -10,12 +10,18 @@ import UIKit
 import CoreData
 import Alamofire
 
+protocol CrewImageDelegate: class {
+    func didUpdateFavoriteCount(newCount:Int16, uuid:String)
+}
+
 class CrewImageDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+
+
     var currentCrewImage: CrewImage!
     var favoritesCounter: Int16 = 0
     var coreDataStack: CoreDataStack?
     var currentComments: [Comment]!
+    weak var delegate: CrewImageDelegate?
     
     @IBOutlet weak var crewImageView: UIImageView!
     @IBOutlet weak var favoriteLabel: UILabel!
@@ -25,7 +31,6 @@ class CrewImageDetailViewController: UIViewController, UITableViewDelegate, UITa
         favoritesCounter += 1
         self.favoriteLabel.text = String(describing:self.favoritesCounter)
         if let favoritedImageUUID = self.currentCrewImage.uuid as? String {
-            print(favoritedImageUUID)
             self.markAsFavorite(uuid:favoritedImageUUID)
         }
     }
@@ -35,6 +40,11 @@ class CrewImageDetailViewController: UIViewController, UITableViewDelegate, UITa
         super.viewDidLoad()
         currentComments = Array(currentCrewImage.comments!) as! [Comment]
         self.configureViews()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
     }
 
     func configureViews() {
@@ -55,11 +65,8 @@ class CrewImageDetailViewController: UIViewController, UITableViewDelegate, UITa
                 
                 switch(response.result) {
                 case .success(_):
-                    if let data = response.result.value{
-                        print(response.result.value)
-                    }
+                    self.delegate?.didUpdateFavoriteCount(newCount: self.favoritesCounter, uuid:uuid)
                     break
-                    
                 case .failure(_):
                     print(response.result.error)
                     break
@@ -78,7 +85,7 @@ class CrewImageDetailViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 66
+        return 50
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

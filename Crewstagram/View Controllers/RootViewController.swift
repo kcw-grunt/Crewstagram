@@ -13,8 +13,8 @@ import Alamofire
 
 let crewBaseURLString: String = "http://alpha-web.crewapp.com/crewstagram"
 
-class RootViewController: UITableViewController {
-
+class RootViewController: UITableViewController, CrewImageDelegate {
+    
     var coreDataStack: CoreDataStack!
     var imagesArray = [CrewImage]()
     var selectedCrewImage: CrewImage?
@@ -26,16 +26,11 @@ class RootViewController: UITableViewController {
         self.performLoad()
     }
 
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        firstly {
-            self.retrieveCrewJSON()
-            }.then {_ in
-            self.tableView.reloadData()
-            }.catch{ error in
-                print("Crewstagram Image Update Error")
-            }
+    func didUpdateFavoriteCount(newCount:Int16, uuid:String) {
+        if let crewIndex = self.imagesArray.index(where:{$0.uuid == uuid}) {
+            let indexPath = IndexPath(row: crewIndex, section: 0)
+            self.tableView.reloadRows(at: [indexPath], with: .fade)
+        }
     }
     
     func performLoad() {
@@ -48,9 +43,8 @@ class RootViewController: UITableViewController {
                     }.catch { error in
                     print("Crewstagram Image Connection Error")
                     }
-               ///NOPE self.tableView.reloadData()
             } else {
-                print("Crewstagram Core Date Init Failure")
+                print("Crewstagram Core Data Init Failure")
             }
         }
     }
@@ -64,7 +58,7 @@ class RootViewController: UITableViewController {
                         if let images = response.result.value as? [String:Any], let imagesArray = images["images"] as? Array<[String:Any]> {
                             
                             for image in imagesArray {
-                                if let uuid = image["uuid"]! as? String, let imageUrlString = image["imageUrl"]! as? String , let favorites = image["favorites"] as? Int16, let crewImage = self.findMatchOrCreateCrewImage(uuid: uuid) as? CrewImage {
+                                if let uuid = image["uuid"]! as? String, let imageUrlString = image["imageUrl"]! as? String , let favorites = image["favorites"] as? Int16, let crewImage = self.findMatchOrCreateCrewImage(uuid: uuid) {
                                          crewImage.uuid = uuid
                                          crewImage.imageUrlString = imageUrlString
                                          crewImage.favorites = favorites
@@ -87,7 +81,6 @@ class RootViewController: UITableViewController {
                             }
                         }
                         fulfill(response.result.value as AnyObject?)
-                        
                         self.tableView.reloadData()
                     } else {
                         reject(response.result.error!)
@@ -113,8 +106,6 @@ class RootViewController: UITableViewController {
             }
             counter += 1
             Alamofire.request(url).responseData(completionHandler: { response in
-                debugPrint(response)
-                 debugPrint(response.result)
                  if let crewImage = response.result.value {
                     let image = UIImage(data: crewImage)
                    self.updateCrewImage(uuid:uuid, newImage: image!)
@@ -125,7 +116,6 @@ class RootViewController: UITableViewController {
             })
         }
     }
-    
     
     func findMatchOrCreateCrewImage(uuid:String) -> CrewImage? {
         do {
@@ -158,7 +148,6 @@ class RootViewController: UITableViewController {
         catch {
             print ("fetch task failed", error)
         }
-        
     }
         
     override func didReceiveMemoryWarning() {
@@ -167,9 +156,7 @@ class RootViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
@@ -180,10 +167,10 @@ class RootViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 320
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CrewImageCell", for: indexPath) as! CrewImageTableViewCell
         let crewImage = self.imagesArray[indexPath.row]
-        
         cell.favoriteLabel.text =  String(crewImage.favorites)
         let url = URL(string: crewImage.imageUrlString!)
         
@@ -201,7 +188,6 @@ class RootViewController: UITableViewController {
                 cell.crewImageView?.image = UIImage(data: existingImage as Data)
             }
         }
-
         return cell
     }
  
@@ -211,6 +197,7 @@ class RootViewController: UITableViewController {
         let detailViewController = storyboard.instantiateViewController(withIdentifier:"CrewImageDetailViewController") as! CrewImageDetailViewController
         detailViewController.currentCrewImage = self.selectedCrewImage
         detailViewController.coreDataStack = self.coreDataStack
+        detailViewController.delegate = self
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
