@@ -30,7 +30,7 @@ class CrewImageDetailViewController: UIViewController, UITableViewDelegate, UITa
     @IBAction func addToFavorites(_ sender: Any) {
         favoritesCounter += 1
         self.favoriteLabel.text = String(describing:self.favoritesCounter)
-        if let favoritedImageUUID = self.currentCrewImage.uuid as? String {
+        if let favoritedImageUUID = self.currentCrewImage.uuid {
             self.markAsFavorite(uuid:favoritedImageUUID)
         }
     }
@@ -50,7 +50,7 @@ class CrewImageDetailViewController: UIViewController, UITableViewDelegate, UITa
     func configureViews() {
         favoritesCounter = self.currentCrewImage.favorites
         self.favoriteLabel.text = String(describing:self.currentCrewImage.favorites)
-        self.crewImageView.image = UIImage(data: currentCrewImage.imageData as! Data)
+        self.crewImageView.image = UIImage(data: currentCrewImage.imageData! as Data)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -59,23 +59,24 @@ class CrewImageDetailViewController: UIViewController, UITableViewDelegate, UITa
     
     
     func markAsFavorite(uuid: String) {
+        
+        let postString = crewBaseURLString + "/" + uuid
         currentCrewImage.setValue(favoritesCounter, forKey: "favorites")
-        if let postingUUIDString = crewBaseURLString + "/" + uuid as? String {
-            Alamofire.request(postingUUIDString, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response:DataResponse<Any>) in
-                
-                switch(response.result) {
-                case .success(_):
-                    self.delegate?.didUpdateFavoriteCount(newCount: self.favoritesCounter, uuid:uuid)
-                    break
-                case .failure(_):
-                    print(response.result.error)
-                    break
-                }
+        
+        Alamofire.request(postString, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response:DataResponse<Any>) in
+            
+            switch(response.result) {
+            case .success(_):
+                self.delegate?.didUpdateFavoriteCount(newCount: self.favoritesCounter, uuid:uuid)
+                break
+            case .failure(_):
+                print(response.result.error ?? "Response result error")
+                break
             }
         }
     }
-    // MARK: - Table view data source
     
+    // MARK: - Table view data source
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

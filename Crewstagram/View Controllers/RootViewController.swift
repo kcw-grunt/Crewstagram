@@ -121,7 +121,7 @@ class RootViewController: UITableViewController, CrewImageDelegate {
         do {
             let imageRequest : NSFetchRequest<CrewImage> = CrewImage.fetchRequest()
             imageRequest.predicate = NSPredicate(format: "uuid == %@", uuid)
-            let fetchedResults = try coreDataStack.backgroundContext.fetch(imageRequest) as! [CrewImage]
+            let fetchedResults = try coreDataStack.backgroundContext.fetch(imageRequest)
             if let foundImage = fetchedResults.first {
                 return foundImage
             } else {
@@ -139,10 +139,9 @@ class RootViewController: UITableViewController, CrewImageDelegate {
         do {
             let imageRequest : NSFetchRequest<CrewImage> = CrewImage.fetchRequest()
             imageRequest.predicate = NSPredicate(format: "uuid == %@", uuid)
-            let fetchedResults = try coreDataStack.backgroundContext.fetch(imageRequest) as! [CrewImage]
+            let fetchedResults = try coreDataStack.backgroundContext.fetch(imageRequest)
             if let foundImage = fetchedResults.first {
                 foundImage.imageData = UIImagePNGRepresentation(newImage)! as NSData
-                print("saved data")
             }
         }
         catch {
@@ -178,9 +177,8 @@ class RootViewController: UITableViewController, CrewImageDelegate {
             DispatchQueue.global().async {
                 let data = try? Data(contentsOf: url!)
                 DispatchQueue.main.async {
-                    crewImage.imageData = data as! NSData
+                    crewImage.imageData = data as? NSData
                     cell.crewImageView?.image = UIImage(data: data!)
-                    let testImage = UIImage(data: data!)
                 }
             }
         } else {

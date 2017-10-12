@@ -32,10 +32,6 @@
 		245E5E391F8A0F0D003F370C /* CrewImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245E5E371F8A0F0D003F370C /* CrewImageDetailViewController.swift */; };
 		245E5E3B1F8A0F50003F370C /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245E5E3A1F8A0F50003F370C /* DetailTableViewCell.swift */; };
 		245E5E3C1F8A0F50003F370C /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245E5E3A1F8A0F50003F370C /* DetailTableViewCell.swift */; };
-		24D6978C1F8ACC6100EE8A5B /* UIImageView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D6978B1F8ACC6100EE8A5B /* UIImageView+Additions.swift */; };
-		24D6978D1F8ACC6100EE8A5B /* UIImageView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D6978B1F8ACC6100EE8A5B /* UIImageView+Additions.swift */; };
-		24D6978F1F8BC96300EE8A5B /* CrewJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D6978E1F8BC96300EE8A5B /* CrewJSON.swift */; };
-		24D697901F8BC96300EE8A5B /* CrewJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D6978E1F8BC96300EE8A5B /* CrewJSON.swift */; };
 		50363D26027BEF6C9F6DEBFF /* Pods_CrewstagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30222C37C4C5E40E025A2137 /* Pods_CrewstagramTests.framework */; };
 		51D05DD2DE44D4A8A5CAA8B0 /* Pods_CrewstagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1C778DD210D5272D30684F /* Pods_CrewstagramUITests.framework */; };
 		D6A5A8C8B3B76ABA5F6A87F4 /* Pods_Crewstagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D43ED2FA996482AECD36CFDE /* Pods_Crewstagram.framework */; };
@@ -82,8 +78,6 @@
 		242C620B1F89936E0086B81D /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		245E5E371F8A0F0D003F370C /* CrewImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewImageDetailViewController.swift; sourceTree = "<group>"; };
 		245E5E3A1F8A0F50003F370C /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
-		24D6978B1F8ACC6100EE8A5B /* UIImageView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Additions.swift"; sourceTree = "<group>"; };
-		24D6978E1F8BC96300EE8A5B /* CrewJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewJSON.swift; sourceTree = "<group>"; };
 		30222C37C4C5E40E025A2137 /* Pods_CrewstagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrewstagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A1C778DD210D5272D30684F /* Pods_CrewstagramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrewstagramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		927DAC28C96BF9224BDBA4C6 /* Pods-CrewstagramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrewstagramUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrewstagramUITests/Pods-CrewstagramUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -199,8 +193,6 @@
 				242C61F21F88A5540086B81D /* Comment+CoreDataProperties.swift */,
 				242C61F31F88A5540086B81D /* CrewImage+CoreDataClass.swift */,
 				242C61F41F88A5540086B81D /* CrewImage+CoreDataProperties.swift */,
-				24D6978B1F8ACC6100EE8A5B /* UIImageView+Additions.swift */,
-				24D6978E1F8BC96300EE8A5B /* CrewJSON.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -304,7 +296,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Grunt Software";
 				TargetAttributes = {
 					242C61AF1F889DDC0086B81D = {
@@ -502,8 +494,6 @@
 				242C61FB1F88A5540086B81D /* CrewImage+CoreDataProperties.swift in Sources */,
 				242C61F91F88A5540086B81D /* CrewImage+CoreDataClass.swift in Sources */,
 				242C620C1F89936E0086B81D /* CoreDataStack.swift in Sources */,
-				24D6978F1F8BC96300EE8A5B /* CrewJSON.swift in Sources */,
-				24D6978C1F8ACC6100EE8A5B /* UIImageView+Additions.swift in Sources */,
 				242C62021F8988CF0086B81D /* RootViewController.swift in Sources */,
 				242C61BC1F889DDC0086B81D /* Crewstagram.xcdatamodeld in Sources */,
 				245E5E381F8A0F0D003F370C /* CrewImageDetailViewController.swift in Sources */,
@@ -518,14 +508,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24D697901F8BC96300EE8A5B /* CrewJSON.swift in Sources */,
 				242C61FC1F88A5540086B81D /* CrewImage+CoreDataProperties.swift in Sources */,
 				242C61FA1F88A5540086B81D /* CrewImage+CoreDataClass.swift in Sources */,
 				245E5E391F8A0F0D003F370C /* CrewImageDetailViewController.swift in Sources */,
 				242C62031F8988CF0086B81D /* RootViewController.swift in Sources */,
 				242C61CC1F889DDC0086B81D /* CrewstagramTests.swift in Sources */,
 				242C61F81F88A5540086B81D /* Comment+CoreDataProperties.swift in Sources */,
-				24D6978D1F8ACC6100EE8A5B /* UIImageView+Additions.swift in Sources */,
 				242C61F61F88A5540086B81D /* Comment+CoreDataClass.swift in Sources */,
 				242C62061F8989170086B81D /* CrewImageTableViewCell.swift in Sources */,
 				245E5E3C1F8A0F50003F370C /* DetailTableViewCell.swift in Sources */,

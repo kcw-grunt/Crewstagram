@@ -8,6 +8,7 @@
 
 import XCTest
 import CoreData
+import Alamofire
 @testable import Crewstagram
 
 class CrewstagramTests: XCTestCase {
@@ -32,7 +33,6 @@ class CrewstagramTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
              ///1. Call Crew API JSON
-            let json = CrewJSON.retrieveCrewJSONObject
         }
     }
     
