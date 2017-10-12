@@ -8,13 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		242C61B41F889DDC0086B81D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C61B31F889DDC0086B81D /* AppDelegate.swift */; };
-		242C61B61F889DDC0086B81D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C61B51F889DDC0086B81D /* ViewController.swift */; };
 		242C61B91F889DDC0086B81D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 242C61B71F889DDC0086B81D /* Main.storyboard */; };
 		242C61BC1F889DDC0086B81D /* Crewstagram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 242C61BA1F889DDC0086B81D /* Crewstagram.xcdatamodeld */; };
 		242C61BE1F889DDC0086B81D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 242C61BD1F889DDC0086B81D /* Assets.xcassets */; };
 		242C61C11F889DDC0086B81D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 242C61BF1F889DDC0086B81D /* LaunchScreen.storyboard */; };
 		242C61CC1F889DDC0086B81D /* CrewstagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C61CB1F889DDC0086B81D /* CrewstagramTests.swift */; };
 		242C61D71F889DDC0086B81D /* CrewstagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C61D61F889DDC0086B81D /* CrewstagramUITests.swift */; };
+		242C61F51F88A5540086B81D /* Comment+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C61F11F88A5540086B81D /* Comment+CoreDataClass.swift */; };
+		242C61F61F88A5540086B81D /* Comment+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C61F11F88A5540086B81D /* Comment+CoreDataClass.swift */; };
+		242C61F71F88A5540086B81D /* Comment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C61F21F88A5540086B81D /* Comment+CoreDataProperties.swift */; };
+		242C61F81F88A5540086B81D /* Comment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C61F21F88A5540086B81D /* Comment+CoreDataProperties.swift */; };
+		242C61F91F88A5540086B81D /* CrewImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C61F31F88A5540086B81D /* CrewImage+CoreDataClass.swift */; };
+		242C61FA1F88A5540086B81D /* CrewImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C61F31F88A5540086B81D /* CrewImage+CoreDataClass.swift */; };
+		242C61FB1F88A5540086B81D /* CrewImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C61F41F88A5540086B81D /* CrewImage+CoreDataProperties.swift */; };
+		242C61FC1F88A5540086B81D /* CrewImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C61F41F88A5540086B81D /* CrewImage+CoreDataProperties.swift */; };
+		242C62021F8988CF0086B81D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C62011F8988CF0086B81D /* RootViewController.swift */; };
+		242C62031F8988CF0086B81D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C62011F8988CF0086B81D /* RootViewController.swift */; };
+		242C62051F8989170086B81D /* CrewImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C62041F8989170086B81D /* CrewImageTableViewCell.swift */; };
+		242C62061F8989170086B81D /* CrewImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C62041F8989170086B81D /* CrewImageTableViewCell.swift */; };
+		242C620C1F89936E0086B81D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C620B1F89936E0086B81D /* CoreDataStack.swift */; };
+		242C620D1F89936E0086B81D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C620B1F89936E0086B81D /* CoreDataStack.swift */; };
+		245E5E381F8A0F0D003F370C /* CrewImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245E5E371F8A0F0D003F370C /* CrewImageDetailViewController.swift */; };
+		245E5E391F8A0F0D003F370C /* CrewImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245E5E371F8A0F0D003F370C /* CrewImageDetailViewController.swift */; };
+		245E5E3B1F8A0F50003F370C /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245E5E3A1F8A0F50003F370C /* DetailTableViewCell.swift */; };
+		245E5E3C1F8A0F50003F370C /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245E5E3A1F8A0F50003F370C /* DetailTableViewCell.swift */; };
+		50363D26027BEF6C9F6DEBFF /* Pods_CrewstagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30222C37C4C5E40E025A2137 /* Pods_CrewstagramTests.framework */; };
+		51D05DD2DE44D4A8A5CAA8B0 /* Pods_CrewstagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1C778DD210D5272D30684F /* Pods_CrewstagramUITests.framework */; };
+		D6A5A8C8B3B76ABA5F6A87F4 /* Pods_Crewstagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D43ED2FA996482AECD36CFDE /* Pods_Crewstagram.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +55,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0BB19C739279584537855DDB /* Pods-Crewstagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crewstagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crewstagram/Pods-Crewstagram.debug.xcconfig"; sourceTree = "<group>"; };
 		242C61B01F889DDC0086B81D /* Crewstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crewstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		242C61B31F889DDC0086B81D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		242C61B51F889DDC0086B81D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		242C61B81F889DDC0086B81D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		242C61BB1F889DDC0086B81D /* Crewstagram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Crewstagram.xcdatamodel; sourceTree = "<group>"; };
 		242C61BD1F889DDC0086B81D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +69,23 @@
 		242C61D21F889DDC0086B81D /* CrewstagramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrewstagramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		242C61D61F889DDC0086B81D /* CrewstagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewstagramUITests.swift; sourceTree = "<group>"; };
 		242C61D81F889DDC0086B81D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		242C61F11F88A5540086B81D /* Comment+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comment+CoreDataClass.swift"; sourceTree = "<group>"; };
+		242C61F21F88A5540086B81D /* Comment+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comment+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		242C61F31F88A5540086B81D /* CrewImage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CrewImage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		242C61F41F88A5540086B81D /* CrewImage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CrewImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		242C62011F8988CF0086B81D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		242C62041F8989170086B81D /* CrewImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewImageTableViewCell.swift; sourceTree = "<group>"; };
+		242C620B1F89936E0086B81D /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		245E5E371F8A0F0D003F370C /* CrewImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewImageDetailViewController.swift; sourceTree = "<group>"; };
+		245E5E3A1F8A0F50003F370C /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		30222C37C4C5E40E025A2137 /* Pods_CrewstagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrewstagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A1C778DD210D5272D30684F /* Pods_CrewstagramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrewstagramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		927DAC28C96BF9224BDBA4C6 /* Pods-CrewstagramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrewstagramUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrewstagramUITests/Pods-CrewstagramUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A00AF702226B110E5DA3374C /* Pods-CrewstagramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrewstagramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrewstagramTests/Pods-CrewstagramTests.release.xcconfig"; sourceTree = "<group>"; };
+		AC579D54BA65BCDABA254D95 /* Pods-CrewstagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrewstagramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrewstagramUITests/Pods-CrewstagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B3E4C71C5E898F4AC78F3153 /* Pods-Crewstagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crewstagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crewstagram/Pods-Crewstagram.release.xcconfig"; sourceTree = "<group>"; };
+		C61FEC2A290C972F10A3ED9E /* Pods-CrewstagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrewstagramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrewstagramTests/Pods-CrewstagramTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D43ED2FA996482AECD36CFDE /* Pods_Crewstagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crewstagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6A5A8C8B3B76ABA5F6A87F4 /* Pods_Crewstagram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50363D26027BEF6C9F6DEBFF /* Pods_CrewstagramTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +109,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51D05DD2DE44D4A8A5CAA8B0 /* Pods_CrewstagramUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1573E6C6D949C9361ECF1318 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0BB19C739279584537855DDB /* Pods-Crewstagram.debug.xcconfig */,
+				B3E4C71C5E898F4AC78F3153 /* Pods-Crewstagram.release.xcconfig */,
+				C61FEC2A290C972F10A3ED9E /* Pods-CrewstagramTests.debug.xcconfig */,
+				A00AF702226B110E5DA3374C /* Pods-CrewstagramTests.release.xcconfig */,
+				AC579D54BA65BCDABA254D95 /* Pods-CrewstagramUITests.debug.xcconfig */,
+				927DAC28C96BF9224BDBA4C6 /* Pods-CrewstagramUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		242C61A71F889DDC0086B81D = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +136,8 @@
 				242C61CA1F889DDC0086B81D /* CrewstagramTests */,
 				242C61D51F889DDC0086B81D /* CrewstagramUITests */,
 				242C61B11F889DDC0086B81D /* Products */,
+				1573E6C6D949C9361ECF1318 /* Pods */,
+				B1DC8F7C30C8E9F26A21F238 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +154,16 @@
 		242C61B21F889DDC0086B81D /* Crewstagram */ = {
 			isa = PBXGroup;
 			children = (
+				242C620A1F89916B0086B81D /* Core Data */,
+				242C62001F8988A60086B81D /* View Controllers */,
+				242C61F01F88A2A60086B81D /* Models */,
 				242C61B31F889DDC0086B81D /* AppDelegate.swift */,
-				242C61B51F889DDC0086B81D /* ViewController.swift */,
 				242C61B71F889DDC0086B81D /* Main.storyboard */,
 				242C61BD1F889DDC0086B81D /* Assets.xcassets */,
 				242C61BF1F889DDC0086B81D /* LaunchScreen.storyboard */,
 				242C61C21F889DDC0086B81D /* Info.plist */,
-				242C61BA1F889DDC0086B81D /* Crewstagram.xcdatamodeld */,
+				242C62041F8989170086B81D /* CrewImageTableViewCell.swift */,
+				245E5E3A1F8A0F50003F370C /* DetailTableViewCell.swift */,
 			);
 			path = Crewstagram;
 			sourceTree = "<group>";
@@ -128,6 +186,45 @@
 			path = CrewstagramUITests;
 			sourceTree = "<group>";
 		};
+		242C61F01F88A2A60086B81D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				242C61F11F88A5540086B81D /* Comment+CoreDataClass.swift */,
+				242C61F21F88A5540086B81D /* Comment+CoreDataProperties.swift */,
+				242C61F31F88A5540086B81D /* CrewImage+CoreDataClass.swift */,
+				242C61F41F88A5540086B81D /* CrewImage+CoreDataProperties.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		242C62001F8988A60086B81D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				242C62011F8988CF0086B81D /* RootViewController.swift */,
+				245E5E371F8A0F0D003F370C /* CrewImageDetailViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		242C620A1F89916B0086B81D /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				242C61BA1F889DDC0086B81D /* Crewstagram.xcdatamodeld */,
+				242C620B1F89936E0086B81D /* CoreDataStack.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		B1DC8F7C30C8E9F26A21F238 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D43ED2FA996482AECD36CFDE /* Pods_Crewstagram.framework */,
+				30222C37C4C5E40E025A2137 /* Pods_CrewstagramTests.framework */,
+				8A1C778DD210D5272D30684F /* Pods_CrewstagramUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +232,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 242C61DB1F889DDC0086B81D /* Build configuration list for PBXNativeTarget "Crewstagram" */;
 			buildPhases = (
+				F3DE6870DDC615F3F8A7661B /* [CP] Check Pods Manifest.lock */,
 				242C61AC1F889DDC0086B81D /* Sources */,
 				242C61AD1F889DDC0086B81D /* Frameworks */,
 				242C61AE1F889DDC0086B81D /* Resources */,
+				739E7676DABE2C9BF1F59946 /* [CP] Embed Pods Frameworks */,
+				541843CE2C78E7A0682F2C67 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +252,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 242C61DE1F889DDC0086B81D /* Build configuration list for PBXNativeTarget "CrewstagramTests" */;
 			buildPhases = (
+				CBBE735326159C50BD4261C2 /* [CP] Check Pods Manifest.lock */,
 				242C61C31F889DDC0086B81D /* Sources */,
 				242C61C41F889DDC0086B81D /* Frameworks */,
 				242C61C51F889DDC0086B81D /* Resources */,
+				2D1790CFA5C4B5B52B42D7FA /* [CP] Embed Pods Frameworks */,
+				49D2F4A73B716C0B9B4F9031 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +273,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 242C61E11F889DDC0086B81D /* Build configuration list for PBXNativeTarget "CrewstagramUITests" */;
 			buildPhases = (
+				AB3F4283EB18948D2633B714 /* [CP] Check Pods Manifest.lock */,
 				242C61CE1F889DDC0086B81D /* Sources */,
 				242C61CF1F889DDC0086B81D /* Frameworks */,
 				242C61D01F889DDC0086B81D /* Resources */,
+				B8F1DA20DDD744FAD55D3731 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -191,7 +296,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Grunt Software";
 				TargetAttributes = {
 					242C61AF1F889DDC0086B81D = {
@@ -257,14 +362,145 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2D1790CFA5C4B5B52B42D7FA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrewstagramTests/Pods-CrewstagramTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49D2F4A73B716C0B9B4F9031 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrewstagramTests/Pods-CrewstagramTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		541843CE2C78E7A0682F2C67 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Crewstagram/Pods-Crewstagram-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		739E7676DABE2C9BF1F59946 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Crewstagram/Pods-Crewstagram-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB3F4283EB18948D2633B714 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B8F1DA20DDD744FAD55D3731 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrewstagramUITests/Pods-CrewstagramUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBBE735326159C50BD4261C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F3DE6870DDC615F3F8A7661B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		242C61AC1F889DDC0086B81D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				242C61B61F889DDC0086B81D /* ViewController.swift in Sources */,
+				242C61F51F88A5540086B81D /* Comment+CoreDataClass.swift in Sources */,
+				242C61FB1F88A5540086B81D /* CrewImage+CoreDataProperties.swift in Sources */,
+				242C61F91F88A5540086B81D /* CrewImage+CoreDataClass.swift in Sources */,
+				242C620C1F89936E0086B81D /* CoreDataStack.swift in Sources */,
+				242C62021F8988CF0086B81D /* RootViewController.swift in Sources */,
 				242C61BC1F889DDC0086B81D /* Crewstagram.xcdatamodeld in Sources */,
+				245E5E381F8A0F0D003F370C /* CrewImageDetailViewController.swift in Sources */,
 				242C61B41F889DDC0086B81D /* AppDelegate.swift in Sources */,
+				242C62051F8989170086B81D /* CrewImageTableViewCell.swift in Sources */,
+				242C61F71F88A5540086B81D /* Comment+CoreDataProperties.swift in Sources */,
+				245E5E3B1F8A0F50003F370C /* DetailTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +508,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				242C61FC1F88A5540086B81D /* CrewImage+CoreDataProperties.swift in Sources */,
+				242C61FA1F88A5540086B81D /* CrewImage+CoreDataClass.swift in Sources */,
+				245E5E391F8A0F0D003F370C /* CrewImageDetailViewController.swift in Sources */,
+				242C62031F8988CF0086B81D /* RootViewController.swift in Sources */,
 				242C61CC1F889DDC0086B81D /* CrewstagramTests.swift in Sources */,
+				242C61F81F88A5540086B81D /* Comment+CoreDataProperties.swift in Sources */,
+				242C61F61F88A5540086B81D /* Comment+CoreDataClass.swift in Sources */,
+				242C62061F8989170086B81D /* CrewImageTableViewCell.swift in Sources */,
+				245E5E3C1F8A0F50003F370C /* DetailTableViewCell.swift in Sources */,
+				242C620D1F89936E0086B81D /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,7 +673,9 @@
 		};
 		242C61DC1F889DDC0086B81D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BB19C739279584537855DDB /* Pods-Crewstagram.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3E73C93UXE;
@@ -443,7 +690,9 @@
 		};
 		242C61DD1F889DDC0086B81D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3E4C71C5E898F4AC78F3153 /* Pods-Crewstagram.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3E73C93UXE;
@@ -458,6 +707,7 @@
 		};
 		242C61DF1F889DDC0086B81D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C61FEC2A290C972F10A3ED9E /* Pods-CrewstagramTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -475,6 +725,7 @@
 		};
 		242C61E01F889DDC0086B81D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A00AF702226B110E5DA3374C /* Pods-CrewstagramTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -492,6 +743,7 @@
 		};
 		242C61E21F889DDC0086B81D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC579D54BA65BCDABA254D95 /* Pods-CrewstagramUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -508,6 +760,7 @@
 		};
 		242C61E31F889DDC0086B81D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 927DAC28C96BF9224BDBA4C6 /* Pods-CrewstagramUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
